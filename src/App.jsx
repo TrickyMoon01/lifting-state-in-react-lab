@@ -1,47 +1,7 @@
 import "./App.css";
-import "./components/BurgerStack/BurgerStack";
-import "./components/IngredientList/IngredientList";
+import BurgerStack from "./components/BurgerStack/BurgerStack";
+import IngredientList from "./components/IngredientList/IngredientList";
 import { useState } from "react";
-
-const IngredientList = ({ ingredients, onAddIngredient }) => {
-  return (
-    <div>
-      <div>
-        {ingredients.map((ingredient, index) => (
-          <div key={index} style={{ backgroundColor: ingredient.color }}>
-            <span>{ingredient.name}</span>
-            <button onClick={() => onAddIngredient(ingredient)}>+</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const BurgerStack = ({ stack, onRemoveIngredient }) => {
-  return (
-    <div>
-      <div>
-        {stack.length === 0 ? (
-          <div>
-            <p>No ingredients yet!</p>
-            <p>Click the + button to add ingredients to your burger</p>
-          </div>
-        ) : (
-          <div>
-            {stack.map((ingredient, index) => (
-              <div style={{ backgroundColor: ingredient.color }}>
-                <span>{ingredient.name}</span>
-                <button onClick={() => onRemoveIngredient(index)}>X</button>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      {stack.length > 0 && <div></div>}
-    </div>
-  );
-};
 
 const App = () => {
   const availableIngredients = [
